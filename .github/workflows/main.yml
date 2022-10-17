@@ -52,7 +52,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: dist/*
+          file: ie_build/wheels/*
           tag: "macosx-${{ github.event.inputs.tag }}${{ github.event.inputs.label }}"
           release_name: "openvino-arm ${{ github.event.inputs.tag }}${{ github.event.inputs.label }}"
           body: "Prebuilt openvino-arm wheel packages for MacOS version ${{ github.event.inputs.tag }}."
