@@ -70,6 +70,10 @@ pip install pybind11 cython scons pyyaml clang==9.0
 pip install --upgrade setuptools
 
 # prepare build
+mkdir $dist_dir
+pushd $dist_dir || exit
+
+# prepare build
 mkdir $build_dir
 pushd $build_dir || exit
 
