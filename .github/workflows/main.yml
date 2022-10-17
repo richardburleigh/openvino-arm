@@ -6,7 +6,7 @@ on:
       tag:
         description: 'Version Tag'
         required: false
-        default: 'v2022.1.0.2'
+        default: 'v2022.3.0.1'
       label:
         description: 'Additional label for release'
         required: false
@@ -21,7 +21,7 @@ jobs:
     strategy:
       matrix:
         os: [ 'macos-11', 'macos-12' ]
-        python-version: [ '3.9' ]
+        python-version: [ '3.10' ]
   
     runs-on: ${{ matrix.os }}
 
@@ -44,7 +44,7 @@ jobs:
         run: |
           echo $GITHUB_WORKSPACE
           cd $GITHUB_WORKSPACE
-          ./build-macos.sh
+          ./build-latest.sh
           ls -la dist
           
       # upload dist
