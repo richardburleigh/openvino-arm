@@ -47,7 +47,7 @@ openvino_contrib_dir="openvino_contrib"
 build_dir="ie_build"
 
 # set wheel parameter
-export WHEEL_PACKAGE_NAME="openvino-arm"
+export WHEEL_PACKAGE_NAME="openvino"
 export WHEEL_URL="https://github.com/cansik/openvino-arm"
 export CUSTOM_WHEEL_VERSION="2022.1.0.2"
 export WHEEL_BUILD="000"
