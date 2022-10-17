@@ -86,9 +86,6 @@ echo "Python Lib: $python_lib"
    #  TBB is not available on current platform
 
 cmake -DIE_EXTRA_MODULES="$root_dir/$openvino_contrib_dir/modules/arm_plugin" -DTHREADING=SEQ -DENABLE_PYTHON=ON -DENABLE_WHEEL=ON -DPYTHON_EXECUTABLE="$python_executable" -DPYTHON_LIBRARY="$python_lib" "$root_dir/$openvino_dir"
-read -p "Press enter to continue"
-
-cmake --build . --target help
 cmake --build . --target ie_wheel -j8
 
 # warning: ninja install does not work correctly
