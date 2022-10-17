@@ -46,13 +46,17 @@ jobs:
           cd $GITHUB_WORKSPACE
           ./build-latest.sh
           ls -la dist
-          
+      # copy wheels
+      - name: Copy wheels
+        run: |
+          mkdir -p dist
+          find . -name \*.whl -exec cp {} dist \;
       # upload dist
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ie_build/wheels/*
+          file: dist/*
           tag: "macosx-${{ github.event.inputs.tag }}${{ github.event.inputs.label }}"
           release_name: "openvino-arm ${{ github.event.inputs.tag }}${{ github.event.inputs.label }}"
           body: "Prebuilt openvino-arm wheel packages for MacOS version ${{ github.event.inputs.tag }}."
