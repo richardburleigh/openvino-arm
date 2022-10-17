@@ -63,7 +63,7 @@ git clone --recurse-submodules --shallow-submodules --depth 1 --branch $ov_contr
 
 root_dir=$(pwd)
 dist_dir="$root_dir/dist"
-
+echo $dist_dir
 # python packages
 pip install wheel
 pip install pybind11 cython scons pyyaml clang==9.0
