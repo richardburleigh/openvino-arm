@@ -86,7 +86,7 @@ echo "Python Lib: $python_lib"
 #  CMake Error at cmake/dependencies.cmake:147 (message):
    #  TBB is not available on current platform
 
-cmake -DCMAKE_C_COMPILER_TARGET="$TARGET" -DCMAKE_CXX_COMPILER_TARGET="$TARGET" -DCMAKE_HOST_SYSTEM_PROCESSOR=arm64 -DIE_EXTRA_MODULES="$root_dir/$openvino_contrib_dir/modules/arm_plugin" -DCMAKE_OSX_DEPLOYMENT_TARGET=$macos_deployment_target -DCMAKE_OSX_ARCHITECTURES="arm64" -DENABLE_INTEL_MYRIAD=OFF -DENABLE_CLDNN=OFF -DENABLE_BEH_TESTS=OFF -DBUILD_SHARED_LIBS=ON -DTHREADING=SEQ -DENABLE_PYTHON=ON -DENABLE_WHEEL=ON -DPYTHON_EXECUTABLE="$python_executable" -DPYTHON_LIBRARY="$python_lib" "$root_dir/$openvino_dir"
+cmake -DCMAKE_APPLE_SILICON_PROCESSOR=arm64 -DCMAKE_C_COMPILER_TARGET=$TARGET -DCMAKE_CXX_COMPILER_TARGET=$TARGET -DCMAKE_HOST_SYSTEM_PROCESSOR=arm64 -DIE_EXTRA_MODULES="$root_dir/$openvino_contrib_dir/modules/arm_plugin" -DCMAKE_OSX_DEPLOYMENT_TARGET=$macos_deployment_target -DCMAKE_OSX_ARCHITECTURES="arm64" -DENABLE_INTEL_MYRIAD=OFF -DENABLE_CLDNN=OFF -DENABLE_BEH_TESTS=OFF -DBUILD_SHARED_LIBS=ON -DTHREADING=SEQ -DENABLE_PYTHON=ON -DENABLE_WHEEL=ON -DPYTHON_EXECUTABLE="$python_executable" -DPYTHON_LIBRARY="$python_lib" "$root_dir/$openvino_dir"
 cmake --build . --target ie_wheel -j8
 
 # warning: ninja install does not work correctly
